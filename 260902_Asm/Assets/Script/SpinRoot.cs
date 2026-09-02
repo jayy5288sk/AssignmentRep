@@ -1,0 +1,16 @@
+using UnityEngine;
+
+public class SpinRoot : MonoBehaviour  
+{  
+    [SerializeField] private float _degreePerSecond = 60f;
+
+    private void Update()  
+    {  
+        Spin();  
+    }
+
+    private void Spin()  
+    {  
+        transform.Rotate(Vector3.up * _degreePerSecond * Time.deltaTime);  
+    }  
+}
