@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoxSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _boxPrefab;
+    [SerializeField] private List<GameObject> _boxPrefab = new();
     [SerializeField] private Transform _boxRoot;
     [SerializeField] private float _spawnInterval;
     [SerializeField] private float _beltSpeed;
@@ -12,6 +12,28 @@ public class BoxSpawner : MonoBehaviour
 
     private float _elapsed;
     private int _nextIndex;
-    
-    
+
+    private void Update()
+    {
+        ReadSpawnKey();
+    }
+
+    private void ReadSpawnKey()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SpawnOne();
+        }
+    }
+
+    private void SpawnOne()
+    {
+        GameObject targetBox = _boxPrefab[_nextIndex];
+        GameObject newBox = Instantiate(targetBox, transform.position, Quaternion.identity, _boxRoot);
+        
+        if (_nextIndex == _boxPrefab.Count - 1)
+        {
+            _nextIndex = 0;
+        }
+    }
 }
