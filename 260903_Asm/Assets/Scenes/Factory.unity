@@ -368,9 +368,9 @@ MonoBehaviour:
   - {fileID: 3646634062440729187, guid: 91d647c46a535574db4207ec66dc93fe, type: 3}
   - {fileID: 8159074630611203180, guid: 091505e39c922c941a8cf137462e5ae4, type: 3}
   _boxRoot: {fileID: 2073189889}
-  _spawnInterval: 2
+  _spawnInterval: 4
   _beltSpeed: 4
-  _lifeSeconds: 0
+  _lifeSeconds: 5
 --- !u!1 &1921648955
 GameObject:
   m_ObjectHideFlags: 0
