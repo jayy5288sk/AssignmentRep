@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoxInfo : MonoBehaviour
 {
-    [SerializeField] private string _boxName;
+    [SerializeField] private string _boxName = "기본 상자";
 
     private void Start()
     {
