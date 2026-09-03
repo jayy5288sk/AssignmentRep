@@ -31,7 +31,9 @@ public class BoxSpawner : MonoBehaviour
         GameObject targetBox = _boxPrefab[_nextIndex];
         GameObject newBox = Instantiate(targetBox, transform.position, Quaternion.identity, _boxRoot);
         
-        if (_nextIndex == _boxPrefab.Count - 1)
+        _nextIndex++;
+        
+        if (_nextIndex >= _boxPrefab.Count)
         {
             _nextIndex = 0;
         }
