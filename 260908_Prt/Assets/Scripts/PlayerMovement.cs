@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _maxPitch;
     private Rigidbody _rigidbody;
     private float _pitch;
+    private float _buffSpeed;
 
     private void Awake()
     {
@@ -83,4 +84,10 @@ public class PlayerMovement : MonoBehaviour
         return _moveSpeed;
     }
 
+    public float SetPlayerSpeed(float speed)
+    {
+        _moveSpeed = speed;
+
+        return _moveSpeed;
+    }
 }

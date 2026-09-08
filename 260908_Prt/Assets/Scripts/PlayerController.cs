@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, IInteractor
 {
     [SerializeField] private Transform _cameraPivot;
-    private PlayerMovement _movement { get; set; }
+    private PlayerMovement _movement;
     private Transform _cameraTransform;
 
     private PlayerWeapon _weapon;

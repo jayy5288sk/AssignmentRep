@@ -55,16 +55,8 @@ public class Stimpack : MonoBehaviour, IInteractable
             return;
 
         PlayerController player = (PlayerController)owner;
-        float originSpeed = player.GetPlayerMovement();
-        float buffSpd = BuffMoveSpeed(originSpeed);
-        
 
         Destroy(gameObject);
-    }
-
-    private float ResetStatus(float buffedSpeed)
-    {
-        return buffedSpeed - _buffMoveSpeed;
     }
 
     private void UpdateTime()
@@ -73,10 +65,5 @@ public class Stimpack : MonoBehaviour, IInteractable
             return;
 
         _currentRemainTime += Time.deltaTime;
-    }
-
-    private float BuffMoveSpeed(float moveSpeed)
-    {
-        return moveSpeed + _buffMoveSpeed;
     }
 }
