@@ -55,6 +55,8 @@ public class Stimpack : MonoBehaviour, IInteractable
             return;
 
         PlayerController player = (PlayerController)owner;
+        
+
 
         Destroy(gameObject);
     }
