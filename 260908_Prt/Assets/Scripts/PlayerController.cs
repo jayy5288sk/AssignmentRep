@@ -130,9 +130,4 @@ public class PlayerController : MonoBehaviour, IInteractor
         _targetInteractable = null;
     }
     // ----------------------------------------------------------
-
-    public float GetPlayerMovement()
-    {
-        return _movement.GetPlayerSpeed();
-    }
 }
