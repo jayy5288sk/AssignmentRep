@@ -6,8 +6,12 @@ public class Stimpack : MonoBehaviour, IInteractable
 {
     public GameObject GameObject { get => gameObject; }
     private Outline _outline;
-    [SerializeField] private int _buffMoveSpeed;
+    [SerializeField] private float _buffMoveSpeed;
     [SerializeField] private float _buffDuration;
+
+    private float _currentRemainTime;
+
+    private bool _isBuffFinish => _currentRemainTime >= _buffDuration; 
 
     private void Awake()
     {
@@ -16,6 +20,11 @@ public class Stimpack : MonoBehaviour, IInteractable
     private void Start()
     {
         Init();
+    }
+
+    private void Update()
+    {
+        UpdateTime();
     }
 
     public void Targeting()
@@ -36,6 +45,7 @@ public class Stimpack : MonoBehaviour, IInteractable
     private void Init()
     {
         _outline.enabled = false;
+        _currentRemainTime = _buffDuration;
     }
 
     public void Interact(IInteractor owner)
@@ -46,13 +56,27 @@ public class Stimpack : MonoBehaviour, IInteractable
 
         PlayerController player = (PlayerController)owner;
         float originSpeed = player.GetPlayerMovement();
-
+        float buffSpd = BuffMoveSpeed(originSpeed);
+        
 
         Destroy(gameObject);
     }
 
-    private void ResetStatus()
+    private float ResetStatus(float buffedSpeed)
     {
+        return buffedSpeed - _buffMoveSpeed;
+    }
 
+    private void UpdateTime()
+    {
+        if (_isBuffFinish)
+            return;
+
+        _currentRemainTime += Time.deltaTime;
+    }
+
+    private float BuffMoveSpeed(float moveSpeed)
+    {
+        return moveSpeed + _buffMoveSpeed;
     }
 }
