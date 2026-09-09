@@ -75,6 +75,15 @@ public class PlayerMovement : MonoBehaviour
 
         return new Vector3(-y, x, 0);
     }
-
     //-----------------------------------------
+
+    public void AddPlayerSpeed(float speedBuff)
+    {
+        _moveSpeed += speedBuff;
+    }
+
+    public void RemovePlayerSpdBuff(float speedBuff)
+    {
+        _moveSpeed -= speedBuff;
+    }
 }
